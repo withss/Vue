@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax封装</title>
+  </head>
+  <body>
+    <button>点击</button>
+    <script src="ajax.js"></script>
+    <script>
+      //虽然前端进行了封装，但是后台怎么知道是那种方法传递数据？怎样获取？
+      window.onload = function (ev) {
+        const oBtn = document.querySelector("button");
+        oBtn.onclick = function (ev1) {
+          ajax({
+            type: "post",
+            data: {
+              name: "小红",
+              age: 18,
+            },
+            url: "09-ajax.php",
+            timeout: 3000,
+            success: function (xhr) {
+              alert(xhr.responseText);
+            },
+            error: function () {
+              alert("请求失败");
+            },
+          });
+        };
+      };
+    </script>
+  </body>
+</html>

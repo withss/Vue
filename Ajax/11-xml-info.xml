@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $products = array(
+    "nz" => array("title" => "甜美女装", "des" => "人见人爱", "img" => "img/nz.jpg"),
+    "bb" => array("title" => "漂亮包包", "des" => "花见花开", "img" => "img/bb.jpg"),
+    "tx" => array("title" => "可爱拖鞋", "des" => "人见人拖", "img" => "img/tx.jpg")
+); -->
+<products>
+  <nz>
+    <title>甜美女装</title>
+    <des>人见人爱</des>
+    <img>img/nz.jpg</img>
+  </nz>
+  <bb>
+    <title>漂亮包包</title>
+    <des>花见花开</des>
+    <img>img/bb.jpg</img>
+  </bb>
+  <tx>
+    <title>可爱拖鞋</title>
+    <des>人见人拖</des>
+    <img>img/tx.jpg</img>
+  </tx>
+</products>

@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body div {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #000000;
+  margin: 50px auto;
+  text-align: center;
+  background: #ccc;
+}
+body div img {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 10px auto 10px;
+  border: 1px solid #000000;
+}
+body div p {
+  text-align: center;
+  background: pink;
+}
+body div button {
+  cursor: pointer;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="11.css" />
+    <title>xml信息获取</title>
+  </head>
+  <body>
+    <div>
+      <p id="title">商品标题名称</p>
+      <img src="" alt="" />
+      <p id="des">商品描述信息</p>
+      <button name="nz">女装</button>
+      <button name="bb">包包</button>
+      <button name="tx">拖鞋</button>
+    </div>
+
+    <script src="ajax.js"></script>
+
+    <script>
+      const oTitle = document.querySelector("#title");
+      const oDes = document.querySelector("#des");
+      const oImg = document.querySelector("img");
+      const oBtns = document.querySelectorAll("button");
+      oBtns.forEach(
+        (item) =>
+          (item.onclick = function () {
+            let self = this;
+            ajax({
+              type: "post",
+              url: "11-ajax-xml.php",
+              data: {
+                // name: this.getAtttribute("name"),
+              },
+              timeout: 3000,
+              success: function (xhr) {
+                // alert(xhr.responseText);
+                var name = self.getAttribute("name");
+                let res = xhr.responseXML;
+                // const info = res.querySelector(name);
+                oTitle.innerHTML = res.querySelector(name + ">title").innerHTML;
+                oDes.innerHTML = res.querySelector(name + ">des").innerHTML;
+                oImg.setAttribute("src", res.querySelector(name + ">img").innerHTML);
+              },
+              error: function (xhr) {
+                alert(xhr.status);
+              },
+            });
+          })
+      );
+    </script>
+  </body>
+</html>

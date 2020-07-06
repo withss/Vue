@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>post-file</title>
+  </head>
+  <body>
+    <!-- 1.上传文件必须是post方式
+    2.必须添加enctype="multipart/form-data"属性
+    3.上传大文件一般会有浏览器限制，可以通过修改php.nin文件的属性进行限制 -->
+    <form action="04-post-file.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="fig" />
+      <input type="submit" value="上传" />
+    </form>
+  </body>
+</html>

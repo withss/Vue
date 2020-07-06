@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ajax-test</title>
+    <link rel="stylesheet" href="10.css" />
+  </head>
+  <body>
+    <div>
+      <p id="title">商品标题名称</p>
+      <img src="" alt="" />
+      <p id="des">商品描述信息</p>
+      <button name="nz">女装</button>
+      <button name="bb">包包</button>
+      <button name="tx">拖鞋</button>
+    </div>
+    <script src="ajax.js"></script>
+    <script>
+      const oTitle = document.querySelector("#title");
+      const oDes = document.querySelector("#des");
+      const oImg = document.querySelector("img");
+      const oBtns = document.querySelectorAll("button");
+      oBtns.forEach(
+        (item) =>
+          (item.onclick = function () {
+            ajax({
+              type: "post",
+              url: "10-ajax-test.php",
+              data: {
+                name: this.getAttribute("name"),
+              },
+              timeout: 3000,
+              success: function (xhr) {
+                // alert(xhr.responseText);
+                var res = xhr.responseText.split("|");
+                oTitle.innerHTML = res[0];
+                oDes.innerHTML = res[1];
+                oImg.setAttribute("src", res[2]);
+                // console.log(arr);
+              },
+              error: function (xhr) {
+                alert(xhr.status);
+              },
+            });
+          })
+      );
+    </script>
+  </body>
+</html>
